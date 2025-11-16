@@ -1,4 +1,4 @@
-FROM php:8.3.0-fpm-alpine3.18
+FROM php:8.3.27-fpm-alpine3.21
 
 LABEL maintainer="Ric Harvey <ric@squarecows.com>"
 
@@ -44,7 +44,7 @@ RUN echo @testing https://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk
     libjpeg-turbo-dev \
     freetype-dev \
     libxslt-dev \
-    gcc 
+    gcc
 
 RUN apk add --no-cache --virtual .sys-deps \
     musl-dev \
@@ -72,7 +72,7 @@ RUN apk add --no-cache --virtual .sys-deps \
      pip install --upgrade pip && \
     docker-php-ext-install pdo_mysql mysqli pdo_sqlite pgsql pdo_pgsql exif intl xsl soap zip && \
     pecl install -o -f xdebug && \
-    pecl install -o -f redis && \ 
+    pecl install -o -f redis && \
     pecl install -o -f mongodb && \
     echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini && \
     echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini && \
