@@ -93,7 +93,6 @@ if [ -f /var/www/html/conf/nginx/nginx-site-ssl.conf ]; then
   cp /var/www/html/conf/nginx/nginx-site-ssl.conf /etc/nginx/sites-available/default-ssl.conf
 fi
 
-
 # Prevent config files from being filled to infinity by force of stop and restart the container
 lastlinephpconf="$(grep "." /usr/local/etc/php-fpm.conf | tail -1)"
 if [[ $lastlinephpconf == *"php_flag[display_errors]"* ]]; then
@@ -183,7 +182,7 @@ if [[ "$ENABLE_XDEBUG" == "1" ]] ; then
   fi
 else
     if [ -f $XdebugFile ]; then
-        echo "Disabling Xdebug"
+      echo "Disabling Xdebug"
       rm $XdebugFile
     fi
 fi
@@ -220,11 +219,11 @@ if [ -z "$SKIP_COMPOSER" ]; then
     # Try auto install for composer
     if [ -f "/var/www/html/composer.lock" ]; then
         if [ "$APPLICATION_ENV" == "development" ]; then
-            composer global require hirak/prestissimo
-            composer install --working-dir=/var/www/html
+          composer global require hirak/prestissimo
+          composer install --working-dir=/var/www/html
         else
-            composer global require hirak/prestissimo
-            composer install --no-dev --working-dir=/var/www/html
+          composer global require hirak/prestissimo
+          composer install --no-dev --working-dir=/var/www/html
         fi
     fi
 fi
