@@ -177,10 +177,7 @@ if [[ "$ENABLE_XDEBUG" == "1" ]] ; then
             echo "xdebug.start_with_request=yes"  >> $XdebugFile
             echo "xdebug.client_host=host.docker.internal" >> $XdebugFile
             echo "xdebug.mode=debug" >> $XdebugFile
-            echo "xdebug.remote_log=/tmp/xdebug.log"  >> $XdebugFile
-            echo "xdebug.remote_autostart=false "  >> $XdebugFile # I use the xdebug chrome extension instead of using autostart
-            # NOTE: xdebug.remote_host is not needed here if you set an environment variable in docker-compose like so `- XDEBUG_CONFIG=remote_host=192.168.111.27`.
-            #       you also need to set an env var `- PHP_IDE_CONFIG=serverName=docker`
+            echo "xdebug.log=/tmp/xdebug.log"  >> $XdebugFile
         fi
     fi
   fi
