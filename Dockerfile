@@ -1,6 +1,6 @@
 FROM php:8.3.0-fpm-alpine3.18
 
-LABEL maintainer="Ric Harvey <ric@squarecows.com>"
+LABEL maintainer="Franck DAKIA"
 
 ENV php_conf /usr/local/etc/php-fpm.conf
 ENV fpm_conf /usr/local/etc/php-fpm.d/www.conf
