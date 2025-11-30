@@ -174,6 +174,7 @@ if [[ "$ENABLE_XDEBUG" == "1" ]] ; then
         else
             echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > $XdebugFile # Note, single arrow to overwrite file.
             echo "xdebug.start_with_request=yes"  >> $XdebugFile
+            echo "xdebug.max_nesting_level=512"  >> $XdebugFile
             echo "xdebug.client_host=host.docker.internal" >> $XdebugFile
             echo "xdebug.mode=debug" >> $XdebugFile
             echo "xdebug.log=/tmp/xdebug.log"  >> $XdebugFile
